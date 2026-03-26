@@ -28,7 +28,6 @@ A simple Obsidian plugin that adds a vertical timeline with some basic custom st
 - (*Below and between headers and subheaders)
 - All standard Obsidian rendered markdown should work within the block
 ```
-```
 
 ## Screenshots
 N/A
