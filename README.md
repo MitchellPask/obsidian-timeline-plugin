@@ -17,16 +17,18 @@ A simple Obsidian plugin that adds a vertical timeline with some basic custom st
     - `Settings` > `Community Plugins` > Turn off `Safe Mode` > Enable `Vertical Timeline` plugin
 
 ## Syntax Example
-> ```timeline
-> # [blue:Tag Text] Example Heading (1999 - 2000 AD)
->- Headers/Subheaders:
->    - Tags are formatted like [color:text]
->    - Date/range(s) can take any characters within parantheses before and/or after header text
->## [purple:tagtagtag] Example Subheading (1999)
->- The Obsidian markdown renderer is reactivated within content areas*
->- (*Below and between headers and subheaders)
->- All standard Obsidian rendered markdown should work within the block
->```
+```markdown
+```timeline
+# [blue:Tag Text] Example Heading (1999 - 2000 AD)
+- Headers/Subheaders:
+    - Tags are formatted like [color:text]
+    - Date/range(s) can take any characters within parantheses before and/or after header text
+## [purple:tagtagtag] Example Subheading (1999)
+- The Obsidian markdown renderer is reactivated within content areas*
+- (*Below and between headers and subheaders)
+- All standard Obsidian rendered markdown should work within the block
+```
+```
 
 ## Screenshots
 N/A
