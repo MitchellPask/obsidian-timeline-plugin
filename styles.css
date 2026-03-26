@@ -1,0 +1,207 @@
+/* ============================================================
+   TIMELINE
+   Built on native <details>/<summary> for zero-JS collapsing.
+
+   STRUCTURE:
+   <div class="timeline">
+     <details class="tl-section">
+       <summary class="tl-heading">...</summary>
+       <p class="tl-entry">...</p>
+       <details class="tl-section">
+         <summary class="tl-subheading">...</summary>
+         <p class="tl-entry">...</p>
+       </details>
+     </details>
+   </div>
+
+   TAG BADGES:
+   <span class="tl-tag tl-purple">Label</span>
+   Available: tl-red, tl-orange, tl-yellow, tl-green,
+              tl-teal, tl-blue, tl-purple, tl-pink, tl-gray
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   ROOT VARIABLES — override these to retheme
+   ------------------------------------------------------------ */
+:root {
+  --tl-line-color:        #888;
+  --tl-line-width:        2px;
+  --tl-indent:            24px;
+
+  --tl-heading-size:      1.2em;
+  --tl-subheading-size:   1.0em;
+  --tl-entry-size:        0.9em;
+
+  --tl-red:    #f87171;
+  --tl-orange: #fb923c;
+  --tl-yellow: #fbbf24;
+  --tl-green:  #34d399;
+  --tl-teal:   #2dd4bf;
+  --tl-blue:   #60a5fa;
+  --tl-purple: #c084fc;
+  --tl-pink:   #f472b6;
+  --tl-gray:   #a3a3a3;
+}
+
+
+/* ------------------------------------------------------------
+   CONTAINER
+   ------------------------------------------------------------ */
+.timeline {
+  margin: 16px 4px 16px;
+}
+
+/* ------------------------------------------------------------
+   SECTION — wraps a collapsible block
+   ------------------------------------------------------------ */
+.tl-section {
+  padding-left: var(--tl-indent);
+  border-left: var(--tl-line-width) solid var(--tl-line-color) /*transparent*/;
+  transition: border-color 0.5s ease;
+  position: relative;
+}
+
+.tl-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(255, 255, 255, 0.164), transparent 18%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.tl-section:has(> summary:hover) {
+  border-left: 4px solid white;
+  margin-left: -2px;
+}
+
+.tl-section:has(> summary:hover)::after {
+  opacity: 1;
+}
+
+/* Remove default triangle marker */
+.tl-section > summary {
+  list-style: none;
+}
+
+.tl-section > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   BOTH HEADINGS
+   ------------------------------------------------------------ */
+
+.tl-heading,
+.tl-subheading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ------------------------------------------------------------
+   HEADING
+   ------------------------------------------------------------ */
+.tl-heading {
+  font-size: var(--tl-heading-size);
+  font-weight: 700;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: filter 0.35s ease;
+}
+
+.tl-heading::before {
+  content: "▶ ";
+  font-size: 0.6em;
+  opacity: 0.6;
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+
+.tl-section[open] > .tl-heading::before {
+  content: "▼ ";
+}
+
+.tl-heading:hover {
+  filter: brightness(1.35);
+}
+
+/* ------------------------------------------------------------
+   SUBHEADING
+   ------------------------------------------------------------ */
+.tl-subheading {
+  font-size: var(--tl-subheading-size);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-top: 10px;
+  opacity: 0.85;
+  transition: filter 0.35s ease;
+}
+
+.tl-subheading::before {
+  content: "▶ ";
+  font-size: 0.75em;
+  opacity: 0.75;
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  text-align: center;  
+}
+
+.tl-section[open] > .tl-subheading::before {
+  content: "▼ ";
+}
+
+.tl-subheading:hover {
+  filter: brightness(1.5);
+}
+
+/* ------------------------------------------------------------
+   ENTRY — plain text line (not collapsible)
+   ------------------------------------------------------------ */
+.tl-entry {
+  font-size: var(--tl-entry-size);
+  margin: 4px 0;
+}
+
+/* ------------------------------------------------------------
+   DATE / DATE RANGE(S)
+   ------------------------------------------------------------ */
+
+.tl-date {
+  font-size: 0.8em;
+  opacity: 0.75;
+}
+
+/* ------------------------------------------------------------
+   TAG BADGES
+   ------------------------------------------------------------ */
+.tl-tag {
+  display: inline-block;
+  font-size: 0.65em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+  background: color-mix(in srgb, var(--tl-tag-color, #888) 20%, transparent);
+  color: var(--tl-tag-color, #888);
+  border: 1px solid color-mix(in srgb, var(--tl-tag-color, #888) 40%, transparent);
+}
+
+.tl-red    { --tl-tag-color: var(--tl-red);    }
+.tl-orange { --tl-tag-color: var(--tl-orange); }
+.tl-yellow { --tl-tag-color: var(--tl-yellow); }
+.tl-green  { --tl-tag-color: var(--tl-green);  }
+.tl-teal   { --tl-tag-color: var(--tl-teal);   }
+.tl-blue   { --tl-tag-color: var(--tl-blue);   }
+.tl-purple { --tl-tag-color: var(--tl-purple); }
+.tl-pink   { --tl-tag-color: var(--tl-pink);   }
+.tl-gray   { --tl-tag-color: var(--tl-gray);   }

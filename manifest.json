@@ -1,0 +1,9 @@
+{
+  "id": "timeline",
+  "name": "Vertical Timeline",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Custom vertical timeline renderer.",
+  "author": "Mitchell",
+  "isDesktopOnly": false
+}
