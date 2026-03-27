@@ -3,16 +3,17 @@ A simple Obsidian plugin that adds a vertical timeline with some basic custom st
 
 ## Features
 - Vertical timeline organization
+- Section highlighting on header hover
 - Side ribbon button to insert a timeline block template on the cursor
 - Simple markdown style formatting
 - Custom flavor tags and date/ranges in headers/subheaders
 
 ## Future Plans
-- Additional styling options
+- Add styling options
 
 ## Installation
 1. Clone or download this repository
-2. Move the timeline plugin folder to your vault's `plugins` directory
+2. Move the `timeline` plugin folder to your vault's `plugins` directory
 3. Enable the timeline plugin
     - `Settings` > `Community Plugins` > Turn off `Safe Mode` > Enable `Vertical Timeline` plugin
 
@@ -30,7 +31,9 @@ A simple Obsidian plugin that adds a vertical timeline with some basic custom st
 ```
 
 ## Screenshots
-N/A
+![Timeline Example](assets/timeline-screenshot.jpg)
+
+Example timeline block rendered in Obsidian with the plugin
 
 ## License
 [MIT License](LICENSE.md)
