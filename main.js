@@ -132,7 +132,6 @@ class TimelinePlugin extends Plugin {
         let match;
 
         while ((match = dateRegex.exec(line)) !== null) {
-            // Text before the date
             if (match.index > lastIndex) {
                 parts.push({ type: 'text', value: line.slice(lastIndex, match.index).trim() });
             }
@@ -143,7 +142,6 @@ class TimelinePlugin extends Plugin {
             lastIndex = match.index + match[0].length;
         }
 
-        // Any remaining text after the last date
         if (lastIndex < line.length) {
             parts.push({ type: 'text', value: line.slice(lastIndex).trim() });
         }

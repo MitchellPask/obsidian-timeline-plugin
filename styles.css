@@ -1,29 +1,5 @@
-/* ============================================================
-   TIMELINE
-   Built on native <details>/<summary> for zero-JS collapsing.
 
-   STRUCTURE:
-   <div class="timeline">
-     <details class="tl-section">
-       <summary class="tl-heading">...</summary>
-       <p class="tl-entry">...</p>
-       <details class="tl-section">
-         <summary class="tl-subheading">...</summary>
-         <p class="tl-entry">...</p>
-       </details>
-     </details>
-   </div>
-
-   TAG BADGES:
-   <span class="tl-tag tl-purple">Label</span>
-   Available: tl-red, tl-orange, tl-yellow, tl-green,
-              tl-teal, tl-blue, tl-purple, tl-pink, tl-gray
-   ============================================================ */
-
-
-/* ------------------------------------------------------------
-   ROOT VARIABLES — override these to retheme
-   ------------------------------------------------------------ */
+/* ROOT VARIABLES */
 :root {
   --tl-line-color:        #888;
   --tl-line-width:        2px;
@@ -45,16 +21,12 @@
 }
 
 
-/* ------------------------------------------------------------
-   CONTAINER
-   ------------------------------------------------------------ */
+/* CONTAINER */
 .timeline {
   margin: 16px 4px 16px;
 }
 
-/* ------------------------------------------------------------
-   SECTION — wraps a collapsible block
-   ------------------------------------------------------------ */
+/* SECTION */
 .tl-section {
   padding-left: var(--tl-indent);
   border-left: var(--tl-line-width) solid var(--tl-line-color) /*transparent*/;
@@ -81,7 +53,7 @@
   opacity: 1;
 }
 
-/* Remove default triangle marker */
+/* remove default triangle marker */
 .tl-section > summary {
   list-style: none;
 }
@@ -90,9 +62,7 @@
   display: none;
 }
 
-/* ------------------------------------------------------------
-   BOTH HEADINGS
-   ------------------------------------------------------------ */
+/* BOTH HEADINGS */
 
 .tl-heading,
 .tl-subheading {
@@ -101,9 +71,7 @@
   gap: 6px;
 }
 
-/* ------------------------------------------------------------
-   HEADING
-   ------------------------------------------------------------ */
+/* HEADING */
 .tl-heading {
   font-size: var(--tl-heading-size);
   font-weight: 700;
@@ -131,9 +99,7 @@
   filter: brightness(1.35);
 }
 
-/* ------------------------------------------------------------
-   SUBHEADING
-   ------------------------------------------------------------ */
+/* SUBHEADING */
 .tl-subheading {
   font-size: var(--tl-subheading-size);
   font-weight: 600;
@@ -162,26 +128,20 @@
   filter: brightness(1.5);
 }
 
-/* ------------------------------------------------------------
-   ENTRY — plain text line (not collapsible)
-   ------------------------------------------------------------ */
+/* ENTRY */
 .tl-entry {
   font-size: var(--tl-entry-size);
   margin: 4px 0;
 }
 
-/* ------------------------------------------------------------
-   DATE / DATE RANGE(S)
-   ------------------------------------------------------------ */
+/* DATE / DATE RANGE(S) */
 
 .tl-date {
   font-size: 0.8em;
   opacity: 0.75;
 }
 
-/* ------------------------------------------------------------
-   TAG BADGES
-   ------------------------------------------------------------ */
+/* TAG BADGES */
 .tl-tag {
   display: inline-block;
   font-size: 0.65em;
